@@ -1,24 +1,16 @@
-# README
+# README.md
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## バージョン
+　Ruby 3.1.2
 
-Things you may want to cover:
+　Rails 6.1.7.6
 
-* Ruby version
 
-* System dependencies
+## インストール
+　$ git clone
 
-* Configuration
+　$ cd task
 
-* Database creation
+　$ rails db:migrate
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+　$ bundle install
