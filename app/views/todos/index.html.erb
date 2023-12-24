@@ -1,36 +1,26 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Task</title>
-  </head>
+<div class="container">
+  <h2>My Task</h2>
+  <div class="col">
+    <form action="/todos" method="POST">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input name="text" placeholder="Input here...">
+      <button type="button" class="btn btn-outline-primary">ADD</button>
+    </form>
 
-  <body>
-    <div class="container">
-      <h2>My Task</h2>
-      <div class="col">
-        <form action="/todos" method="POST">
+    <h3>Task List</h3>
+    <ul>
+      <% @todos.each do |todo| %>
+      <li>
+        <%= todo.text %>
+        <form action="/todos/<%= todo.id %>"
+              style="display: inline;"
+              method="POST">
           <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-          <input name="text" placeholder="Input here...">
-          <button type="button" class="btn btn-outline-primary">ADD</button>
+          <input name="_method" type="hidden" value="DELETE">
+          <button type="button" class="btn btn-outline-danger">DEL</button>
         </form>
-
-        <h3>Task List</h3>
-        <ul>
-          <% @todos.each do |todo| %>
-          <li>
-            <%= todo.text %>
-            <form action="/todos/<%= todo.id %>"
-                  style="display: inline;"
-                  method="POST">
-              <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-              <input name="_method" type="hidden" value="DELETE">
-              <button type="button" class="btn btn-outline-danger">DEL</button>
-            </form>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </body>
-</html>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
