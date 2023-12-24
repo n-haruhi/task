@@ -7,7 +7,7 @@
 
 
 ## インストール
-　$ git clone
+　$ git clone git@github.com:n-haruhi/task.git
 
 　$ cd task
 
